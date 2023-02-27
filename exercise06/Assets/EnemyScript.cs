@@ -50,8 +50,11 @@ public class EnemyScript : MonoBehaviour
     {
         if (other.CompareTag("collect"))
         {
+            Debug.Log("the enmemy ate a fish");
             Destroy(other.gameObject);
             gm.IncrementEnemyScore();
+            gm.DecreaseFishCollect();
+            
         }
     }
 }

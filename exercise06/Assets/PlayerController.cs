@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             gm.IncrementPlayerScore();
-
+            gm.DecreaseFishCollect();
         }
     }
 }

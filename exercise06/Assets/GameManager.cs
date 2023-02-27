@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
 {
     int playerScore = 0;
     int enemyScore = 0;
+    int fishCollectables = 7;
     public TMP_Text playerScoreText;
     public TMP_Text enemyScoreText;
+    public TMP_Text youWin;
+    public TMP_Text youLose;
     public PlayerController player;
 
     // Start is called before the first frame update
@@ -35,6 +38,22 @@ public class GameManager : MonoBehaviour
                 
             }
         }
+        if (fishCollectables == 0)
+        {
+
+            Debug.Log("the fish are gone");
+            if(playerScore > enemyScore)
+            {
+                youWin.alpha = 255;
+            }
+            
+            else
+            {
+                youLose.alpha = 255;
+            }
+        }
+
+     Debug.Log(fishCollectables.ToString());  
     }
     public void IncrementPlayerScore()
     {
@@ -47,5 +66,9 @@ public class GameManager : MonoBehaviour
         enemyScore++;
         enemyScoreText.text = enemyScore.ToString();
     }
-
+    
+    public void DecreaseFishCollect()
+    {
+        fishCollectables--;
+    }
 }
